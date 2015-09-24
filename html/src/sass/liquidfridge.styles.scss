@@ -1,0 +1,296 @@
+@import "bourbon";
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+
+@import "variables";
+@import "abstractions";
+
+html, body {
+	height: 100%;
+}
+
+.c-tbl {
+	display: table;
+	width: 100%;
+	height: 100%;
+
+	.c-row {
+		display: table-row;
+
+		.c-cell {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+		}
+	}
+}
+
+.l-tbl {
+	width: 100%;
+	height: 100%;
+
+	.l-row {
+		height: 100%;
+
+		.l-cell {
+			height: 50%;
+			vertical-align: middle;
+			text-align: center;
+
+			.l-inner {
+				display: inline-block;
+				margin: auto;
+				text-align: left;
+			}
+		}
+	}
+}
+
+a {
+	@include link-colors($white, $white, $white, $white, $white);
+	text-decoration: none;
+
+	&:visited {
+		text-decoration: none;
+	}
+
+	&:active, &:focus, &:hover {
+		text-decoration: none;
+	}
+}
+
+.l-title {
+	margin: 0;
+	padding: 0;
+	color: $white;
+	font-size: 1em;
+
+	a {
+		display: block;
+		cursor: pointer;
+	}
+}
+
+.l-radio {
+	background: $sky;
+
+	.l-logo {
+		display: inline-block;
+		vertical-align: middle;
+		@include font-size(80px);
+		width: 1em;
+		height: 1em;
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.l-title {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0 0 0 0.5em;
+	}
+
+	.l-name {
+		display: inline-block;
+		text-transform: uppercase;
+		color: $white;
+		@include font-size(16px);
+		line-height: 1.2;
+		background: $navy;
+		padding: 0.1em 0.2em;
+	}
+
+	.l-slogan {
+		display: inline-block;
+		text-transform: uppercase;
+		color: $navy;
+		@include font-size(12px);
+		line-height: 1.2;
+		background: $white;
+		padding: 0.2em 0.2em;
+		margin-top: 0.4em;
+	}
+
+	a {
+		&:active, &:focus, &:hover {
+			.l-name {
+				background: $white;
+				color: $navy;
+			}
+		}
+	}
+}
+
+.bgsizecover {
+	.l-radio {
+		background-image: url(../img/erebus.jpg);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-attachment: fixed;
+
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+}
+
+.l-dandelion {
+	background: $navy;
+
+	.l-name {
+		display: inline-block;
+		color: $white;
+		@include font-size(18px);
+		line-height: 1.2;
+		font-family: $monospace;
+	}
+
+	a {
+		white-space: nowrap;
+
+		&:active, &:focus, &:hover {
+			.l-name {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.blinking-cursor {
+		color: $white;
+		font-weight: normal;
+		margin-left: 0.15em;
+		@include font-size(20px);
+		@include animation(1s blink step-end infinite);
+
+		&:before {
+			content: "|";
+		}
+	}
+
+	@include keyframes(blink) {
+		from, to {
+			color: transparent;
+		}
+		50% {
+			color: $white;
+		}
+	}
+}
+
+/*----------------------------------------------------------------------
+
+----------------------------------------------------------------------*/
+
+@media (min-height: 30em) {
+
+	.l-radio {
+		.l-name {
+			@include font-size(20px);
+		}
+
+		.l-slogan {
+			@include font-size(16px);
+		}
+	}
+
+	.l-dandelion {
+		.l-name {
+			@include font-size(22px);
+		}
+
+		.blinking-cursor {
+			@include font-size(26px);
+		}
+	}
+
+}
+
+/*----------------------------------------------------------------------
+>= 752
+----------------------------------------------------------------------*/
+
+@include breakpoint($medium) {
+
+	.l-radio {
+		.l-logo {
+			display: block;
+			@include font-size(96px);
+		}
+
+		.l-title {
+			display: block;
+			margin: 0.5em 0 0 0.5em;
+		}
+
+		.l-name {
+			@include font-size(20px);
+		}
+
+		.l-slogan {
+			@include font-size(16px);
+		}
+	}
+
+	.l-dandelion {
+		.l-name {
+			@include font-size(22px);
+		}
+
+		.blinking-cursor {
+			@include font-size(26px);
+		}
+	}
+
+}
+
+/*----------------------------------------------------------------------
+>= 1008
+----------------------------------------------------------------------*/
+
+@include breakpoint($large) {
+
+	.l-tbl {
+		display: table;
+		width: 100%;
+
+		.l-row {
+			display: table-row;
+
+			.l-cell {
+				display: table-cell;
+				width: 50%;
+				height: auto;
+			}
+		}
+	}
+
+}
+
+/*----------------------------------------------------------------------
+>= 1360
+----------------------------------------------------------------------*/
+
+@include breakpoint($xlarge) {
+
+	html {
+		font-size: 110%;
+	}
+
+}
+
+/*----------------------------------------------------------------------
+>= 1920
+----------------------------------------------------------------------*/
+
+@include breakpoint($xxlarge) {
+
+	html {
+		font-size: 137.5%;
+	}
+
+}

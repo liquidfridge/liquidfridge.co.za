@@ -1,2 +1,9 @@
 # liquidfridge.co.za
-Website for Liquid Fridge
+
+
+
+## Configuration
+
+
+
+## Installation
