@@ -258,7 +258,7 @@ a {
 
 	.l-dandelion {
 		.l-title {
-			margin: 4em auto;
+			margin: 6em auto 4em;
 		}
 
 		.l-credit {
@@ -299,6 +299,12 @@ a {
 
 	html {
 		font-size: 110%;
+	}
+
+	.l-dandelion {
+		.l-credit {
+			@include font-size(10px);
+		}
 	}
 
 }
