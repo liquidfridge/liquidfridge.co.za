@@ -111,15 +111,16 @@ a {
 		padding: 0.1em 0.2em;
 	}
 
-	.l-slogan {
+	.l-tune {
 		display: inline-block;
 		text-transform: uppercase;
 		color: $navy;
 		@include font-size(12px);
 		line-height: 1.2;
 		background: $white;
-		padding: 0.2em 0.2em;
+		padding: 0.4em;
 		margin-top: 0.4em;
+		@include border-radius(0.2em);
 	}
 
 	a {
@@ -213,8 +214,10 @@ a {
 			@include font-size(20px);
 		}
 
-		.l-slogan {
-			@include font-size(16px);
+		.l-tune {
+			@include font-size(12px);
+			padding: 0.7em;
+			margin-top: 1em;
 		}
 	}
 
@@ -244,15 +247,17 @@ a {
 
 		.l-title {
 			display: block;
-			margin: 0.5em 0 0 0.5em;
+			margin: 0.8em 0 0 0.5em;
 		}
 
 		.l-name {
 			@include font-size(20px);
 		}
 
-		.l-slogan {
-			@include font-size(16px);
+		.l-tune {
+			@include font-size(12px);
+			padding: 0.7em;
+			margin-top: 1.2em;
 		}
 	}
 
