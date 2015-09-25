@@ -6,6 +6,12 @@
 @import "variables";
 @import "abstractions";
 
+@include establish-baseline($base-font-size);
+
+body {
+	font-family: $sans-serif;
+}
+
 html, body {
 	height: 100%;
 }
@@ -22,6 +28,7 @@ html, body {
 			display: table-cell;
 			vertical-align: middle;
 			text-align: center;
+			padding: 0 3em;
 		}
 	}
 }
@@ -142,12 +149,25 @@ a {
 .l-dandelion {
 	background: $navy;
 
+	.l-title {
+		text-align: center;
+		margin: 2em auto;
+	}
+
 	.l-name {
 		display: inline-block;
 		color: $white;
 		@include font-size(18px);
 		line-height: 1.2;
 		font-family: $monospace;
+	}
+
+	.l-credit {
+		color: $navy-grey;
+		@include font-size(11px);
+		line-height: 1.5;
+		text-align: center;
+		margin: 2em auto 0;
 	}
 
 	a {
@@ -237,6 +257,14 @@ a {
 	}
 
 	.l-dandelion {
+		.l-title {
+			margin: 4em auto;
+		}
+
+		.l-credit {
+			margin: 4em auto;
+		}
+
 		.l-name {
 			@include font-size(22px);
 		}
@@ -245,14 +273,6 @@ a {
 			@include font-size(26px);
 		}
 	}
-
-}
-
-/*----------------------------------------------------------------------
->= 1008
-----------------------------------------------------------------------*/
-
-@include breakpoint($large) {
 
 	.l-tbl {
 		display: table;
