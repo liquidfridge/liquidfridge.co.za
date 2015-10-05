@@ -3,6 +3,7 @@
 var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
 var del = require('del');
+var fs = require('fs');
 var gulp = require('gulp');
 var header = require('gulp-header');
 var htmlmin = require('gulp-htmlmin');
@@ -17,7 +18,6 @@ var run = require('gulp-run');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
-var svg2png = require('gulp-svg2png');
 var svgmin = require('gulp-svgmin');
 var svgstore = require('gulp-svgstore');
 var template = require('gulp-template');
@@ -37,6 +37,7 @@ var sassParams = {
 };
 
 var pkg = require('./package.json');
+var config = require('./config.json');
 var banner = '/* <%= pkg.name %> <%= pkg.version %> (build <%= moment().toISOString() %>) */\n';
 
 gulp.task('modernizr', function (cb) {
@@ -47,7 +48,6 @@ gulp.task('modernizr', function (cb) {
 				'options': [
 					'setClasses',
 					'addTest',
-					'html5printshiv',
 					'testProp',
 					'fnBind'
 				],
@@ -85,7 +85,8 @@ gulp.task('usemin', function (cb) {
 	gulp.src('src/**/*.html')
 			.pipe(usemin({
 				css: [minifyCss({advanced: false}), rev()],
-				js: [uglify(), rev()]
+				js1: [uglify(), rev()],
+				js2: [uglify(), rev()]
 			}))
 			.pipe(gulp.dest('build'))
 			.on('end', cb);
@@ -121,10 +122,44 @@ gulp.task('svg', function (cb) {
 			.on('end', cb);
 });
 
-gulp.task('svg2png', function (cb) {
-	gulp.src('src/svg/**/*.svg')
-			.pipe(svg2png())
-			.pipe(gulp.dest('img'))
+gulp.task('replace', function (cb) {
+	gulp.src('build/**/*.html')
+			.pipe(replace({
+				patterns: [
+					{
+						json: config
+					},
+					{
+						match: 'svg',
+						replacement: fs.readFileSync('svg/icon.svg', 'utf8')
+					},
+					{
+						match: 'white',
+						replacement: '#fff'
+					},
+					{
+						match: 'navy',
+						replacement: '#0a2d50'
+					},
+					{
+						match: 'sky',
+						replacement: '#20a3b6'
+					},
+					{
+						match: 'light-sky',
+						replacement: '#2fc5da'
+					},
+					{
+						match: 'dark-sky',
+						replacement: '#1b8898'
+					},
+					{
+						match: 'lemon',
+						replacement: '#f9ec38'
+					}
+				]
+			}))
+			.pipe(gulp.dest('build'))
 			.on('end', cb);
 });
 
@@ -146,16 +181,16 @@ gulp.task('sync', function (cb) {
 	run('bash sync.sh css 1').exec(cb);
 });
 
-gulp.task('build:dev', function (cb) {
-	runSequence('clean:init', 'sass:dev', 'usemin', 'svg', 'svg2png', 'move', 'sync', 'clean:exit', cb);
+gulp.task('dev', function (cb) {
+	runSequence('clean:init', 'sass:dev', 'usemin', 'svg', 'replace', 'move', 'sync', 'clean:exit', cb);
 });
 
-gulp.task('build:prod', function (cb) {
-	runSequence('clean:init', 'sass:prod', 'usemin', 'svg', 'svg2png', 'move', 'clean:exit', cb);
+gulp.task('prod', function (cb) {
+	runSequence('clean:init', 'sass:prod', 'usemin', 'svg', 'replace', 'move', 'clean:exit', cb);
 });
 
 gulp.task('watch', function () {
-	gulp.watch(['!tmp', 'src/sass/**/*.scss', 'src/js/**/*.js', 'src/svg/**/*.svg', 'src/**/*.html'], ['build:dev']);
+	gulp.watch(['!tmp', 'src/sass/**/*.scss', 'src/js/**/*.js', 'src/svg/**/*.svg', 'src/**/*.html'], ['dev']);
 });
 
-gulp.task('default', ['build:dev', 'watch']);
+gulp.task('default', ['dev', 'watch']);

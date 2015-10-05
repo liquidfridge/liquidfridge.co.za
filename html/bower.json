@@ -2,12 +2,19 @@
   "name": "liquidfridge",
   "version": "1.0.0",
   "dependencies": {
+    "bluebird": "~2.10.2",
     "bourbon": "~4.2.4",
     "compass-breakpoint": "breakpoint-sass#~2.6.1",
     "compass-mixins": "~1.0.2",
+    "fastclick": "~1.0.6",
+    "html5shiv": "~3.7.3",
+    "jquery": "~2.1.4",
     "normalize-scss": "~3.0.3",
     "respond": "~1.4.2",
-    "singularity": "~1.6.2"
+    "rh-breakpoint": "https://github.com/netbek/rh-breakpoint.git#master",
+    "rh-icon": "https://github.com/netbek/rh-icon.git#master",
+    "singularity": "~1.6.2",
+    "velocity": "~1.2.3"
   },
   "devDependencies": {
     "prefixfree": "https://github.com/LeaVerou/prefixfree.git#gh-pages"

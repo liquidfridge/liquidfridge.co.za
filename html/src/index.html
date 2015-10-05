@@ -5,7 +5,7 @@
 <!--[if IEMobile 7 ]> <html class="no-js iem7" lang="en"> <![endif]-->
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 	<head>
-		<title>Liquid Fridge</title>
+		<title>@@metatag.title</title>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta name="HandheldFriendly" content="True" />
@@ -15,11 +15,11 @@
 		<meta name="MSSmartTagsPreventParsing" content="true" />
 		<meta http-equiv="cleartype" content="on" />
 
-		<meta name="description" content="Creative Swapmeet" />
-		<meta name="copyright" content="(CC BY-SA 4.0) Liquid Fridge" />
+		<meta name="description" content="@@metatag.description" />
+		<meta name="copyright" content="@@metatag.copyright" />
 
-		<meta property="og:title" content="Liquid Fridge" />
-		<meta property="og:description" content="Creative Swapmeet" />
+		<meta property="og:title" content="@@metatag.og.title" />
+		<meta property="og:description" content="@@metatag.og.description" />
 
 		<meta name="geo.placename" content="South Africa" />
 		<meta name="geo.position" content="-30.559482;22.937506" />
@@ -40,56 +40,109 @@
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-		<link rel="alternate" type="application/rss+xml" title="Liquid Fridge" href="http://feeds.feedburner.com/liquidfridge" />
+		<link rel="alternate" type="application/rss+xml" title="@@metatag.title" href="http://feeds.feedburner.com/liquidfridge" />
 
 		<!-- build:css css/app.css -->
 		<link rel="stylesheet" href="../tmp/css/liquidfridge.normalize.css"/>
 		<link rel="stylesheet" href="../tmp/css/liquidfridge.styles.css"/>
+		<link rel="stylesheet" href="../bower_components/rh-icon/dist/css/rh-icon.css"/>
 		<!-- endbuild -->
 
-		<!-- build:js js/app.js -->
-		<script src="../bower_components/respond/dest/respond.src.js"></script>
+		<!-- build:js1 js/header.js -->
 		<script src="vendor/modernizr/modernizr.js"></script>
+		<script src="../bower_components/respond/dest/respond.src.js"></script>
+		<script src="../bower_components/html5shiv/dist/html5shiv-printshiv.js"></script>
+		<script src="../bower_components/fastclick/lib/fastclick.js"></script>
 		<!-- endbuild -->
 	</head>
 	<body>
-		<div class="l-tbl">
-			<div class="l-row">
-				<div class="l-cell l-radio">
-					<div class="c-tbl">
-						<div class="c-row">
-							<div class="c-cell">
-								<div class="l-inner">
-									<div class="l-logo">
-										<svg viewBox="0 0 256 256" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#0A2D50" d="M238.57 81.29c-6.045-14.29-14.7-27.124-25.718-38.143-11.02-11.02-23.852-19.67-38.142-25.715C159.914 11.172 144.198 8 128 8s-31.915 3.173-46.71 9.432c-2.442 1.033-4.84 2.147-7.194 3.333 0 0 .003 0 .003.003-5.79-5.55-13.554-9.08-22.18-9.38-.4-.014-.8-.022-1.198-.022-8.776 0-17.095 3.36-23.424 9.46-6.347 6.114-10.01 14.334-10.32 23.143-.292 8.382 2.468 16.403 7.8 22.792-2.763 4.653-5.22 9.498-7.347 14.527C11.174 96.084 8 111.8 8 128s3.173 31.916 9.432 46.71c6.044 14.292 14.695 27.124 25.715 38.143S67 232.525 81.29 238.566C96.086 244.826 111.803 248 128 248s31.914-3.173 46.71-9.434c14.29-6.04 27.123-14.695 38.143-25.714 11.02-11.02 19.673-23.85 25.717-38.142 6.257-14.794 9.43-30.512 9.43-46.71s-3.173-31.915-9.43-46.71zM78.253 46.11c-.532 15.223-13.14 27.087-28.475 26.55-7.35-.256-14.157-3.36-19.173-8.737-5.016-5.38-7.635-12.386-7.38-19.736.52-14.9 12.598-26.57 27.494-26.57.328 0 .653.007.98.02 15.172.528 27.083 13.3 26.554 28.472z"/><g fill="#FFF"><path d="M109.71 185.756C94.286 170.328 85.79 149.816 85.79 128c0-8.972 1.44-17.723 4.203-25.99-1.05-.453-2.105-.887-3.16-1.303-3.622-1.4-7.243-2.584-10.864-3.554-3.632-.958-7.243-1.698-10.83-2.217-1.945-.274-3.874-.48-5.79-.624-4.002 10.47-6.204 21.826-6.204 33.687 0 52.153 42.432 94.587 94.588 94.587 26.267 0 50.063-10.764 67.217-28.11-13.76 9.873-30.21 15.202-47.48 15.202-21.82 0-42.33-8.496-57.76-23.924z"/><path d="M76.43 199.303C57.384 180.26 46.895 154.936 46.895 128c0-11.74 1.994-23.172 5.82-33.914-2.87.022-5.695.203-8.473.547-3.36.417-6.627 1.065-9.797 1.944-3.18.88-6.243 2.003-9.188 3.368-2.956 1.365-5.764 2.972-8.426 4.822-.075.053-.148.107-.225.16-1.54 7.453-2.354 15.17-2.354 23.072 0 62.718 51.03 113.747 113.75 113.747 30.96 0 59.066-12.44 79.596-32.575-17.235 12.768-38.02 19.667-59.862 19.667-26.936 0-52.258-10.488-71.304-29.537z"/><path d="M239.188 151.25c-2.675 1.85-5.484 3.45-8.426 4.805-2.947 1.365-6.01 2.493-9.19 3.384-3.18.88-6.445 1.522-9.797 1.93-3.362.416-6.79.598-10.288.54-3.496-.045-7.033-.33-10.607-.845-3.59-.51-7.198-1.248-10.83-2.218-3.62-.958-7.242-2.142-10.863-3.554-3.62-1.41-7.214-3.04-10.78-4.89-3.574-1.837-7.094-3.905-10.557-6.193-3.463-2.268-6.853-4.755-10.17-7.462-3.327-2.707-6.548-5.625-9.66-8.748H128l.018-.018c-3.136-3.103-6.362-6.006-9.68-8.715-3.316-2.706-6.705-5.198-10.168-7.478-3.475-2.28-6.995-4.344-10.56-6.193-.622-.32-1.244-.632-1.867-.94-2.398 7.355-3.7 15.2-3.7 23.343 0 41.59 33.836 75.428 75.427 75.428 33.497 0 61.96-21.95 71.77-52.22-.017.016-.035.03-.052.042z"/><path d="M167.84 122.16h-9.907l4.954 4.956M162.887 96.254l-11.713 11.712H174.6M172.572 117.43l4.732-4.732H148.47l4.73 4.73M220.222 112.698h-36.227l-4.73 4.73h36.225M210.76 122.16h-34.05l4.73 4.732h24.587M201.296 131.623h-15.124l7.56 7.563M217.52 107.966l-23.787-23.782-18.113 18.112 5.67 5.67"/></g></svg>
-									</div>
-									<h2 class="l-title">
-										<a href="//radio.liquidfridge.co.za">
-											<span class="l-name">Radio</span><br /><span class="l-name">Mondays</span><br /><span class="l-tune">Tune in</span>
-										</a>
-									</h2>
-								</div>
+		<div class="element-invisible">@@svg</div>
+
+		<header class="l-header" role="banner">
+			<h1 class="l-site-name">Liquid Fridge</h1>
+			<div class="l-logo">
+				<span class="icon icon-logo" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-logo"></use></svg></span>
+			</div>
+		</header>
+
+		<div class="l-main" id="main-content">
+			<div class="l-content" role="main">
+				<section class="l-radio" id="radio">
+					<h2 class="l-section-title">Tune in<span class="icon icon-circle" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default" fill="@@navy" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-circle"></use></svg></span></h2>
+					<a href="http://radio.liquidfridge.co.za"><span class="icon icon-radio" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default" preserveAspectRatio="xMinYMin meet" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-radio"></use></svg></span></a>
+				</section>
+				<section class="l-projects" id="projects">
+					<h2 class="l-section-title">Projects</h2>
+					<ul class="l-menu">
+						<li class="l-leaf">
+							<div class="l-node l-node-dandelion">
+								<a href="http://dandelion.liquidfridge.co.za" style="background-image: url(img/dandelion-16517340751.jpg);">
+									<span class="l-tbl">
+										<span class="l-row">
+											<span class="l-cell">
+												<span class="l-title">Dandelion</span>
+												<span class="l-description">Imagining a discussion club for concerned citizens.</span>
+												<span class="icon icon-play has-hover" title="View" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default white" fill="@@white" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-play"></use></svg><svg class="hover sky" fill="@@sky" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-play"></use></svg></span><span class="element-invisible">View</span>
+											</span>
+										</span>
+									</span>
+								</a>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="l-cell l-dandelion">
-					<div class="c-tbl">
-						<div class="c-row">
-							<div class="c-cell">
-								<div class="l-inner">
-									<h2 class="l-title">
-										<a href="//dandelion.liquidfridge.co.za">
-											<span class="l-name">Dandelion</span><span class="blinking-cursor"></span>
-										</a>
-									</h2>
-									<div class="l-credit">Photo courtesy of the National Oceanic and Atmospheric Administration</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+						</li>
+					</ul>
+				</section>
 			</div>
 		</div>
+
+		<footer class="l-footer" role="contentinfo">
+			<div class="l-constrained">
+				<section class="l-social">
+					<div class="l-tbl">
+						<div class="l-row">
+							<div class="l-cell">
+								<h2 class="l-section-title">Connect</h2>
+								<ul class="l-menu">
+									<li class="l-leaf"><a href="http://twitter.com/liquidfridge" target="_blank">Twitter</a></li>
+									<li class="l-leaf"><a href="http://facebook.com/liquidfridge" target="_blank">Facebook</a></li>
+									<li class="l-leaf"><a href="http://liquidfridge.tumblr.com" target="_blank">Tumblr</a></li>
+									<li class="l-leaf"><a href="http://github.com/liquidfridge" target="_blank">GitHub</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="l-credit">
+					<div class="l-constrained">
+						<p>"Dandelion" image courtesy of NOAA Okeanos Explorer Program (<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC BY</a>)</p>
+					</div>
+				</section>
+			</div>
+		</footer>
+
+		<div class="l-bg" id="bg">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="400px" height="400px" viewBox="0 0 400 400" xml:space="preserve">
+			<circle id="bg-circle-4" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="184"/>
+			<circle id="bg-circle-3" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="138"/>
+			<circle id="bg-circle-2" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="104"/>
+			<circle id="bg-circle-1" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="78"/>
+			<circle id="bg-circle-0" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="58"/>
+			<circle fill-rule="evenodd" fill="@@dark-sky" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="44"/>
+			</svg>
+		</div>
+
+		<!-- build:js2 js/footer.js -->
+		<script src="../bower_components/lodash/lodash.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="../bower_components/jquery/dist/jquery.js"></script>
+		<script src="../bower_components/bluebird/js/browser/bluebird.core.js"></script>
+		<script src="../bower_components/velocity/velocity.js"></script>
+		<script src="../bower_components/rhea/dist/js/rhea.js"></script>
+		<script src="../bower_components/rh-icon/dist/js/rh-icon.js"></script>
+		<script src="../bower_components/rh-breakpoint/dist/js/rh-breakpoint.js"></script>
+		<script src="js/lqf.js"></script>
+		<script src="js/lqf/layouts/front.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/init.js"></script>
+		<!-- endbuild -->
 	</body>
 </html>
