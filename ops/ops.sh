@@ -38,6 +38,8 @@ function do_install () {
     wget https://github.com/liquidfridge/liquidfridge.co.za/archive/master.zip
     unzip master.zip
 
+    do_unsecure
+
     cd "liquidfridge.co.za-master/html"
     cp --force --preserve --recursive . "${G_PUBLIC_ROOT}"
 
