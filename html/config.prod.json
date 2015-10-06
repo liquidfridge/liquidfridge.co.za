@@ -1,0 +1,44 @@
+{
+	"url": "http://liquidfridge.co.za/",
+	"facebook": {
+		"url": "https://www.facebook.com/liquidfridge"
+	},
+	"metatag": {
+		"title": "Liquid Fridge",
+		"abstract": "Creative Swapmeet",
+		"description": "Creative Swapmeet",
+		"keywords": "",
+		"copyright": "(CC BY-SA 4.0) Liquid Fridge",
+		"og": {
+			"title": "Liquid Fridge",
+			"description": "Creative Swapmeet",
+			"url": "http://liquidfridge.co.za/",
+			"type": "music.radio_station",
+			"image": {
+				"facebook": {
+					"url": "http://liquidfridge.co.za/img/1200x630.png",
+					"width": "1200",
+					"height": "630"
+				},
+				"linkedin": {
+					"url": "",
+					"width": "",
+					"height": ""
+				}
+			}
+		},
+		"twitter": {
+			"card": "summary_large_image",
+			"site": "@liquidfridge",
+			"creator": "@liquidfridge",
+			"image": {
+				"url": "http://liquidfridge.co.za/img/1200x630.png",
+				"width": "1200",
+				"height": "630"
+			}
+		},
+		"mobile_web_app_capable": "yes",
+		"apple_mobile_web_app_capable": "yes",
+		"apple_mobile_web_app_title": "Liquid Fridge"
+	}
+}

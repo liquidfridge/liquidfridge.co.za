@@ -37,8 +37,9 @@ var sassParams = {
 };
 
 var pkg = require('./package.json');
-var config = require('./config.json');
+var config;
 var banner = '/* <%= pkg.name %> <%= pkg.version %> (build <%= moment().toISOString() %>) */\n';
+var now = (new Date()).getTime();
 
 gulp.task('modernizr', function (cb) {
 	gulp.src(['src/index.html'])
@@ -130,6 +131,14 @@ gulp.task('replace', function (cb) {
 						json: config
 					},
 					{
+						match: 'timestamp',
+						replacement: now
+					},
+					{
+						match: /(css|js)\/([0-9a-z]+)\-([0-9a-z]+)\.(css|js)/g,
+						replacement: config.url + '$1/$2-$3.$4'
+					},
+					{
 						match: 'svg',
 						replacement: fs.readFileSync('svg/icon.svg', 'utf8')
 					},
@@ -182,10 +191,12 @@ gulp.task('sync', function (cb) {
 });
 
 gulp.task('dev', function (cb) {
+	config = require('./config.dev.json');
 	runSequence('clean:init', 'sass:dev', 'usemin', 'svg', 'replace', 'move', 'sync', 'clean:exit', cb);
 });
 
 gulp.task('prod', function (cb) {
+	config = require('./config.prod.json');
 	runSequence('clean:init', 'sass:prod', 'usemin', 'svg', 'replace', 'move', 'clean:exit', cb);
 });
 
