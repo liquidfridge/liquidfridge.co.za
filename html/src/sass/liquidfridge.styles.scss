@@ -103,7 +103,7 @@ a {
 
 				.icon-circle {
 					@include font-size(10px);
-					margin-left: 0.5em;
+					margin-left: 0.6em;
 				}
 			}
 
@@ -132,7 +132,6 @@ a {
 				}
 
 				&:active, &:focus, &:hover {
-					background: $sky;
 					text-decoration: none;
 				}
 			}
@@ -224,11 +223,6 @@ a {
 
 							&:active, &:focus, &:hover {
 								text-decoration: none;
-
-								.l-title,
-								.l-description {
-									color: $sky;
-								}
 							}
 						}
 					}
@@ -251,12 +245,55 @@ a {
 				a {
 					background-color: $dark-sky;
 					background-repeat: no-repeat;
-					background-position: 50% 100%;
+					background-position: 50% 50%;
+					background-size: auto;
+				}
+			}
+		}
+	}
+}
 
-					-webkit-background-size: cover;
-					-moz-background-size: cover;
-					-o-background-size: cover;
-					background-size: cover;
+/* Only use hover styles for large elements on non-touch devices */
+.no-touchevents {
+	.l-main {
+		.l-content {
+			.l-radio {
+				a {
+					&:active, &:focus, &:hover {
+						background: $sky;
+					}
+				}
+			}
+
+			.l-projects {
+				.l-menu {
+					.l-leaf {
+						.l-node {
+							&:active, &:focus, &:hover {
+								.l-title,
+								.l-description {
+									color: $sky;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.bgsizecover {
+	.l-main {
+		.l-content {
+			.l-projects {
+				.l-node-dandelion {
+					a {
+						-webkit-background-size: cover;
+						-moz-background-size: cover;
+						-o-background-size: cover;
+						background-size: cover;
+					}
 				}
 			}
 		}
