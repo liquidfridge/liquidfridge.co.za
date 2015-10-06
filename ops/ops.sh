@@ -93,6 +93,7 @@ function do_secure () {
     chmod 444 og-480x250.png
     chmod 444 favicon.ico
     chmod 444 crossdomain.xml
+    chmod 444 index.html
     chmod 444 robots.txt
 
     # Public, read-only
