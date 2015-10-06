@@ -29,6 +29,8 @@ function do_install () {
         exit 1
     fi
 
+    do_unsecure
+
     local DIR="${G_HOME}/ops/tmp"
 
     rm -fr "${DIR}"
@@ -37,8 +39,6 @@ function do_install () {
     cd "${DIR}"
     wget https://github.com/liquidfridge/liquidfridge.co.za/archive/master.zip
     unzip master.zip
-
-    do_unsecure
 
     cd "liquidfridge.co.za-master/html"
     cp --force --preserve --recursive . "${G_PUBLIC_ROOT}"
