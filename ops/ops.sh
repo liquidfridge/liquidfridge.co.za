@@ -38,7 +38,8 @@ function do_install () {
     wget https://github.com/liquidfridge/liquidfridge.co.za/archive/master.zip
     unzip master.zip
 
-    rsync --verbose --archive --delete --compress "liquidfridge.co.za-master/html" "${G_PUBLIC_ROOT}/../"
+    cd "liquidfridge.co.za-master/html"
+    cp --force --preserve --recursive . "${G_PUBLIC_ROOT}"
 
     rm -fr "${DIR}"
 
