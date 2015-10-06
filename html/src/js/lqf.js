@@ -34,7 +34,7 @@
 				debug: false // {Boolean}
 			},
 			front: {
-				debug: true, // {Boolean}
+				debug: false, // {Boolean}
 				delay: 500,
 				duration: 300,
 				multiplier: 1.33
