@@ -386,10 +386,74 @@ a {
 }
 
 /*----------------------------------------------------------------------
+>= 752
+----------------------------------------------------------------------*/
+
+@media screen and (min-width: $medium) {
+
+	$vert-offset: 50px;
+	$horz-offset: 40px;
+
+	.l-main {
+		.l-content {
+			.l-radio {
+				@include height(320px);
+
+				.l-section-title {
+					@include padding($vert-offset * 0.75, $horz-offset);
+				}
+			}
+
+			.l-projects {
+				.l-section-title {
+					@include padding($vert-offset, $horz-offset);
+				}
+
+				.l-menu {
+					.l-leaf {
+						.l-node {
+							.l-tbl {
+								.l-row {
+									.l-cell {
+										padding: ($vert-spacing-unit * 5) ($horz-spacing-unit * 2);
+									}
+								}
+							}
+						}
+
+						&:first-child {
+							.l-node {
+								.l-tbl {
+									.l-row {
+										.l-cell {
+											padding: ($vert-spacing-unit * 7) ($horz-spacing-unit * 2) ($vert-spacing-unit * 5);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.l-footer {
+		> .l-constrained {
+			@include padding($vert-offset, $horz-offset);
+		}
+	}
+
+}
+
+/*----------------------------------------------------------------------
 LANDSCAPE
 ----------------------------------------------------------------------*/
 
-@media screen and (orientation: landscape) {
+@media screen and (min-width: $medium) and (orientation: landscape) {
+
+	$vert-offset: 50px;
+	$horz-offset: 40px;
 
 	body {
 		overflow: hidden;
@@ -541,96 +605,6 @@ LANDSCAPE
 			left: 0;
 			text-align: right;
 
-			.l-constrained {
-				@include padding($vert-offset, $horz-offset);
-			}
-		}
-	}
-
-}
-
-/*----------------------------------------------------------------------
->= 752
-----------------------------------------------------------------------*/
-
-@media screen and (min-width: $medium) {
-
-	$vert-offset: 50px;
-	$horz-offset: 40px;
-
-	.l-main {
-		.l-content {
-			.l-radio {
-				@include height(320px);
-
-				.l-section-title {
-					@include padding($vert-offset * 0.75, $horz-offset);
-				}
-			}
-
-			.l-projects {
-				.l-section-title {
-					@include padding($vert-offset, $horz-offset);
-				}
-
-				.l-menu {
-					.l-leaf {
-						.l-node {
-							.l-tbl {
-								.l-row {
-									.l-cell {
-										padding: ($vert-spacing-unit * 5) ($horz-spacing-unit * 2);
-									}
-								}
-							}
-						}
-
-						&:first-child {
-							.l-node {
-								.l-tbl {
-									.l-row {
-										.l-cell {
-											padding: ($vert-spacing-unit * 7) ($horz-spacing-unit * 2) ($vert-spacing-unit * 5);
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	.l-footer {
-		> .l-constrained {
-			@include padding($vert-offset, $horz-offset);
-		}
-	}
-
-}
-
-@media screen and (min-width: $medium) and (orientation: landscape) {
-
-	$vert-offset: 50px;
-	$horz-offset: 40px;
-
-	.l-footer {
-		> .l-constrained {
-			padding: 0;
-		}
-
-		.l-social {
-			.l-tbl {
-				.l-row {
-					.l-cell {
-						@include padding($vert-offset, $horz-offset);
-					}
-				}
-			}
-		}
-
-		.l-credit {
 			.l-constrained {
 				@include padding($vert-offset, $horz-offset);
 			}

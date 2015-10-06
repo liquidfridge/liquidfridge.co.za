@@ -66,7 +66,7 @@
 
 		//
 		rhea.breakpoint.on('change', function () {
-			if (rhea.breakpoint.includes('landscape')) {
+			if (rhea.breakpoint.includes('medium') && rhea.breakpoint.includes('landscape')) {
 				self.playAnim();
 			}
 			else {
