@@ -60,7 +60,7 @@
 		}
 
 		// Play animation if in landscape.
-		if (rhea.breakpoint.includes('landscape')) {
+		if (rhea.breakpoint.includes('medium') && rhea.breakpoint.includes('landscape')) {
 			this.playAnim();
 		}
 
