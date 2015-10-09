@@ -37,7 +37,7 @@
 				debug: false, // {Boolean}
 				delay: 500,
 				duration: 300,
-				multiplier: 1.33
+				multiplier: 1.3
 			}
 		};
 	}

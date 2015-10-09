@@ -7,6 +7,6 @@
  */
 
 (function (window, undefined) {
-  // lodash alias required by rhea.
-  window.lodash = window._;
+	// lodash alias required by rhea.
+	window.lodash = window._;
 })(window);

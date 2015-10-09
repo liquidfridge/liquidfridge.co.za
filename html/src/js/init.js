@@ -8,12 +8,12 @@
 
 (function (window, undefined) {
 
-  var intv = setInterval(function () {
-    if (window.lqf && window.lqf.isDependenciesLoaded()) {
-      clearInterval(intv);
+	var intv = setInterval(function () {
+		if (window.lqf && window.lqf.isDependenciesLoaded()) {
+			clearInterval(intv);
 
-      window.lqf.init();
-    }
-  }, 20);
+			window.lqf.init();
+		}
+	}, 20);
 
 })(window);

@@ -29,8 +29,6 @@
 			init: false, // {Boolean}
 			playing: false // {Boolean}
 		};
-
-		this.$circles = undefined;
 	}
 
 	/**
@@ -50,8 +48,12 @@
 		var config = lqfConfig.get().front;
 		var self = this;
 
+		this.$radio = jQuery('#radio');
+		this.$header = jQuery('#header');
+		this.$bg = jQuery('#bg');
+
 		//
-		var total = 5;
+		var total = 7;
 
 		this.$circles = new Array(total);
 
@@ -59,14 +61,14 @@
 			this.$circles[i] = jQuery('#bg-circle-' + i);
 		}
 
-		// Play animation if in landscape.
-		if (rhea.breakpoint.includes('medium') && rhea.breakpoint.includes('landscape')) {
+		//
+		if (rhea.breakpoint.includes('large')) {
 			this.playAnim();
 		}
 
 		//
 		rhea.breakpoint.on('change', function () {
-			if (rhea.breakpoint.includes('medium') && rhea.breakpoint.includes('landscape')) {
+			if (rhea.breakpoint.includes('large')) {
 				self.playAnim();
 			}
 			else {
@@ -74,10 +76,33 @@
 			}
 		});
 
+//		// @todo Throttle callback
+//		jQuery(window).on('resize', function () {
+//			self.render();
+//		});
+//
+//		this.render();
+
 		this.initDeferred.resolve(true);
 
 		return this.initDeferred.promise;
 	};
+
+//	/**
+//	 *
+//	 */
+//	Front.prototype.render = function () {
+//		log(namespace + '.render()');
+//
+//		if (!this.flags.init) {
+//			return;
+//		}
+//
+//		var top = this.$radio.width() / 2;
+//
+//		this.$bg.css('top', top);
+//		this.$header.css('top', top);
+//	};
 
 	/**
 	 *
@@ -147,24 +172,48 @@
 														return;
 													}
 
-													var i = 0;
-													var j = 0;
-
-													for (j = 0; j < total; j++) {
-														self.$circles[j].velocity({
-															opacity: 0
-														}, {
-															delay: config.delay * 2,
-															duration: config.duration / 2,
-															complete: function () {
-																i++;
-
-																if (i === total) {
-																	anim();
-																}
+													self.$circles[5].velocity({
+														opacity: 1
+													}, {
+														delay: config.delay * Math.pow(config.multiplier, 5),
+														duration: config.duration,
+														complete: function (elm) {
+															if (!self.flags.playing) {
+																return;
 															}
-														});
-													}
+
+															self.$circles[6].velocity({
+																opacity: 1
+															}, {
+																delay: config.delay * Math.pow(config.multiplier, 6),
+																duration: config.duration,
+																complete: function (elm) {
+																	if (!self.flags.playing) {
+																		return;
+																	}
+
+																	var i = 0;
+																	var j = 0;
+
+																	for (j = 0; j < total; j++) {
+																		self.$circles[j].velocity({
+																			opacity: 0
+																		}, {
+																			delay: config.delay * 2,
+																			duration: config.duration / 2,
+																			complete: function () {
+																				i++;
+
+																				if (i === total) {
+																					anim();
+																				}
+																			}
+																		});
+																	}
+																}
+															});
+														}
+													});
 												}
 											});
 										}
