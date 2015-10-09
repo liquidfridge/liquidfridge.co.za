@@ -32,15 +32,17 @@ function do_install () {
     do_unsecure
 
     local DIR="${G_HOME}/ops/tmp"
+#   local BRANCH="master"
+    local BRANCH="2.x"
 
     rm -fr "${DIR}"
     mkdir -p "${DIR}"
 
     cd "${DIR}"
-    wget https://github.com/liquidfridge/liquidfridge.co.za/archive/master.zip
-    unzip master.zip
+    wget "https://github.com/liquidfridge/liquidfridge.co.za/archive/${BRANCH}.zip"
+    unzip "${BRANCH}.zip"
 
-    cd "liquidfridge.co.za-master/html"
+    cd "liquidfridge.co.za-${BRANCH}/html"
     cp --force --preserve --recursive . "${G_PUBLIC_ROOT}"
 
     rm -fr "${DIR}"
