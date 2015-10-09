@@ -9,6 +9,18 @@
 
 @include establish-baseline($base-font-size);
 
+img,
+a img,
+*:link img,
+*:visited img {
+	border: none;
+	@include box-sizing(padding-box);
+	height: auto;
+	max-width: 100%;
+	vertical-align: top;
+	-ms-interpolation-mode: bicubic;
+}
+
 svg {
 	display: inline-block;
 	line-height: 1;
@@ -228,6 +240,7 @@ a {
 					display: block;
 					position: relative;
 					z-index: 0;
+					line-height: 1;
 
 					img {
 						width: 100%;
