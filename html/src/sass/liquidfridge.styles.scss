@@ -270,6 +270,7 @@ a {
 				}
 
 				&:active, &:focus, &:hover {
+					.l-section-title,
 					.l-title,
 					.l-description {
 						color: $sky;
