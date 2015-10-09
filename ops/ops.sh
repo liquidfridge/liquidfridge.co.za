@@ -32,7 +32,7 @@ function do_install () {
     do_unsecure
 
     local DIR="${G_HOME}/ops/tmp"
-   local BRANCH="master"
+    local BRANCH="master"
 
     rm -fr "${DIR}"
     mkdir -p "${DIR}"
