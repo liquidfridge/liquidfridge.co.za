@@ -243,7 +243,7 @@ a {
 				.l-description {
 					display: block;
 					color: $white;
-					@include font-size(12px);
+					@include font-size(14px);
 					line-height: ($base-line-height / $em-base);
 					margin: ($vert-spacing-unit * 0.4) 0;
 				}
@@ -619,10 +619,6 @@ a {
 				a {
 					.l-title {
 						@include font-size(36px);
-					}
-
-					.l-description {
-						@include font-size(14px);
 					}
 				}
 			}
