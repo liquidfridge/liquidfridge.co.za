@@ -33,7 +33,7 @@ a {
 }
 
 .l-section-title {
-	@include font-size(11px);
+	@include font-size(12px);
 	line-height: ($base-line-height / $em-base);
 	font-weight: bold;
 	text-transform: uppercase;
@@ -598,10 +598,6 @@ a {
 ----------------------------------------------------------------------*/
 
 @media screen and (min-width: $xlarge) {
-
-	.l-section-title {
-		@include font-size(12px);
-	}
 
 	.l-bg {
 		.l-logo {
