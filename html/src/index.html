@@ -82,7 +82,7 @@
 	<body>
 		<div class="element-invisible">@@svg</div>
 
-		<header class="l-header" role="banner">
+		<header class="l-header" role="banner" id="header">
 			<h1 class="l-site-name">Liquid Fridge</h1>
 			<div class="l-logo">
 				<span class="icon icon-logo" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-logo"></use></svg></span>
@@ -91,68 +91,86 @@
 
 		<div class="l-main" id="main-content">
 			<div class="l-content" role="main">
-				<section class="l-radio">
-					<h2 class="l-section-title">Music</h2>
-					<a href="http://radio.liquidfridge.co.za"><span class="icon icon-radio" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default" preserveAspectRatio="xMinYMin meet" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-radio"></use></svg></span></a>
+				<section class="l-radio" id="radio">
+					<a href="http://radio.liquidfridge.co.za" target="_blank">
+						<span class="l-section-title">Music</span>
+						<span class="icon icon-radio" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default navy" fill="@@navy" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-radio"></use></svg></span>
+						<span class="icon icon-radio-bg has-hover" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default lemon" fill="@@lemon" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-radio-bg"></use></svg><svg class="hover sky" fill="@@sky" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-radio-bg"></use></svg></span>
+					</a>
 				</section>
-				<section class="l-projects">
-					<h2 class="l-section-title">Research</h2>
-					<ul class="l-menu">
-						<li class="l-leaf">
-							<div class="l-node l-node-dandelion">
-								<a href="http://dandelion.liquidfridge.co.za" style="background-image: url(@@urlimg/dandelion-16517340751.jpg);">
-									<span class="l-tbl">
-										<span class="l-row">
-											<span class="l-cell">
-												<span class="l-title">Dandelion</span>
-												<span class="l-description">Imagining a discussion club for concerned citizens.</span>
-												<span class="icon icon-play has-hover" title="View" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default white" fill="@@white" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-play"></use></svg><svg class="hover sky" fill="@@sky" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-play"></use></svg></span><span class="element-invisible">View</span>
-											</span>
-										</span>
-									</span>
-								</a>
-							</div>
-						</li>
-					</ul>
+
+				<section class="l-dandelion" id="dandelion">
+					<a href="http://dandelion.liquidfridge.co.za" target="_blank" style="background-image: url(@@urlimg/dandelion-16517340751-square.jpg);">
+						<span class="l-section-title">Research</span>
+						<span class="l-tbl">
+							<span class="l-row">
+								<span class="l-cell">
+									<span class="l-title">Dandelion</span>
+									<span class="l-description">Imagining a discussion club for concerned citizens.</span>
+								</span>
+							</span>
+						</span>
+					</a>
+				</section>
+
+				<section class="l-history" id="history">
+					<a href="http://netbek.co.za/work/liquid-fridge-2003-2010" target="_blank">
+						<span class="l-section-title">History</span>
+						<span class="icon icon-history-speaker has-hover" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default navy" fill="@@navy" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-history-speaker"></use></svg><svg class="hover navy" fill="@@navy" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-history-speaker"></use></svg></span>
+						<span class="icon icon-history-logo has-hover" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default dark-sky" fill="@@dark-sky" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-history-logo"></use></svg><svg class="hover navy" fill="@@navy" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-history-logo"></use></svg></span>
+						<span class="icon icon-history-bg has-hover" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default dark-sky" fill="@@dark-sky" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-history-bg"></use></svg><svg class="hover lemon" fill="@@lemon" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-history-bg"></use></svg></span>
+					</a>
+				</section>
+
+				<section class="l-about" id="about">
+					<div class="l-constrained">
+						<div class="l-headline">
+							<p>Welcome to the <em>LQF</em> — creative swapmeet sailing the Seven Seas.</p>
+						</div>
+						<div class="l-social">
+							<h2 class="l-section-title">Connect</h2>
+							<ul class="l-menu">
+								<li class="l-leaf"><a href="http://twitter.com/liquidfridge" target="_blank">Twitter</a></li>
+								<li class="l-leaf"><a href="http://facebook.com/liquidfridge" target="_blank">Facebook</a></li>
+								<li class="l-leaf"><a href="http://liquidfridge.tumblr.com" target="_blank">Tumblr</a></li>
+								<li class="l-leaf"><a href="http://eepurl.com/NUxN1" target="_blank" data-popup="1" data-popup-width="650" data-popup-height="600">Newsletter</a></li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section class="l-about-bg">
+					<span class="icon icon-about-bg" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default dark-sky" fill="@@dark-sky" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-about-bg"></use></svg></span>
 				</section>
 			</div>
 		</div>
 
 		<footer class="l-footer" role="contentinfo">
 			<div class="l-constrained">
-				<section class="l-social">
-					<div class="l-tbl">
-						<div class="l-row">
-							<div class="l-cell">
-								<h2 class="l-section-title">Connect</h2>
-								<ul class="l-menu">
-									<li class="l-leaf"><a href="http://twitter.com/liquidfridge" target="_blank">Twitter</a></li>
-									<li class="l-leaf"><a href="http://facebook.com/liquidfridge" target="_blank">Facebook</a></li>
-									<li class="l-leaf"><a href="http://liquidfridge.tumblr.com" target="_blank">Tumblr</a></li>
-									<li class="l-leaf"><a href="http://github.com/liquidfridge" target="_blank">GitHub</a></li>
-									<li class="l-leaf"><a href="http://eepurl.com/NUxN1" target="_blank" data-popup="1" data-popup-width="650" data-popup-height="600">Newsletter</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</section>
 				<section class="l-credit">
-					<div class="l-constrained">
-						<p>"Dandelion" image courtesy of NOAA Okeanos Explorer Program (<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC BY-SA</a>)</p>
-					</div>
+					<p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />"Dandelion" image courtesy of NOAA Okeanos Explorer Program (<a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC BY-SA</a>)</p>
 				</section>
+
+				<nav class="l-footer-menu" role="navigation">
+					<ul class="l-menu">
+						<li class="l-leaf"><a href="https://github.com/liquidfridge" class="icon-github" target="_blank" title="Code on GitHub"><span class="icon icon-github has-hover" title="Code on GitHub" aria-hidden="true" draggable="false" ondragstart="return false;"><svg class="default light-sky" fill="#2FC5DA" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-github"></use></svg><svg class="hover white" fill="#FFF" preserveAspectRatio="xMidYMid meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#icon-github"></use></svg></span><span class="element-invisible">Code on GitHub</span></a></li>
+					</ul>
+				</nav>
 			</div>
 		</footer>
 
 		<div class="l-bg" id="bg">
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="400px" height="400px" viewBox="0 0 400 400" xml:space="preserve">
-			<circle id="bg-circle-4" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="184"/>
-			<circle id="bg-circle-3" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="138"/>
-			<circle id="bg-circle-2" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="104"/>
-			<circle id="bg-circle-1" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="78"/>
-			<circle id="bg-circle-0" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="58"/>
-			<circle fill-rule="evenodd" fill="@@dark-sky" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="200" cy="200" r="44"/>
-			</svg>
+			<div class="l-logo">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="600px" height="600px" viewBox="0 0 600 600" xml:space="preserve">
+				<circle id="bg-circle-5" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="300" cy="300" r="298"/>
+				<circle id="bg-circle-4" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="300" cy="300" r="226"/>
+				<circle id="bg-circle-3" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="300" cy="300" r="170"/>
+				<circle id="bg-circle-2" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="300" cy="300" r="128"/>
+				<circle id="bg-circle-1" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="300" cy="300" r="96"/>
+				<circle id="bg-circle-0" fill-rule="evenodd" fill="none" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="300" cy="300" r="72"/>
+				<circle fill-rule="evenodd" fill="@@dark-sky" stroke="@@dark-sky" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="300" cy="300" r="54"/>
+				</svg>
+			</div>
 		</div>
 
 		<!-- build:js2 js/footer.js -->

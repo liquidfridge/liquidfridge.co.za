@@ -9,9 +9,6 @@
 
 @include establish-baseline($base-font-size);
 
-$vert-offset: 30px;
-$horz-offset: 20px;
-
 svg {
 	display: inline-block;
 	line-height: 1;
@@ -20,10 +17,6 @@ svg {
 body {
 	background: $navy;
 	font-family: $sans-serif;
-}
-
-html, body {
-	height: 100%;
 }
 
 a {
@@ -41,7 +34,7 @@ a {
 
 .l-section-title {
 	@include font-size(11px);
-	line-height: 1;
+	line-height: ($base-line-height / $em-base);
 	font-weight: bold;
 	text-transform: uppercase;
 }
@@ -57,7 +50,7 @@ a {
 .l-header {
 	display: block;
 	position: relative;
-	z-index: 20;
+	z-index: 5;
 	overflow: hidden;
 
 	.l-site-name {
@@ -82,201 +75,273 @@ a {
 	z-index: 10;
 
 	.l-content {
+		position: relative;
+
 		.l-radio,
-		.l-projects {
+		.l-dandelion,
+		.l-history,
+		.l-about,
+		.l-about-bg {
 			@include clearfix;
 			display: block;
 			position: relative;
+			z-index: 10;
 		}
 
-		.l-radio {
-			@include height(240px);
-
-			.l-section-title {
-				position: absolute;
-				z-index: 10;
-				top: 0;
-				right: 0;
-				margin: 0;
-				@include padding($vert-offset, $horz-offset);
-				color: $navy;
-
-				.icon-circle {
-					@include font-size(10px);
-					margin-left: 0.6em;
-				}
-			}
-
+		.l-radio,
+		.l-history,
+		.l-dandelion {
 			a {
 				display: block;
-				position: relative;
-				z-index: 0;
 				cursor: pointer;
-				height: 100%;
-				background: $lemon;
+				position: relative;
+				width: 100%;
+				height: 0;
+				padding: 0 0 100%;
 				text-decoration: none;
 
-				.icon-radio {
-					width: 100%;
-					height: 100%;
-
-					svg {
-						width: 100%;
-						height: 100%;
-					}
-				}
-
 				&:visited {
-					background: $lemon;
 					text-decoration: none;
 				}
 
 				&:active, &:focus, &:hover {
 					text-decoration: none;
 				}
+
+				.l-section-title {
+					display: block;
+					position: absolute;
+					z-index: 50;
+					top: 0;
+					right: 0;
+					margin: 0;
+					padding: ($vert-spacing-unit * 2.5) ($horz-spacing-unit * 2.5);
+				}
 			}
 		}
 
-		.l-projects {
-			background: red;
+		.l-radio {
+			a {
+				.l-section-title {
+					color: $navy;
+				}
 
-			.l-section-title {
-				position: absolute;
-				z-index: 10;
-				margin: 0;
-				@include padding($vert-offset, $horz-offset);
-				color: $lemon;
+				.icon-radio,
+				.icon-radio-bg {
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: block;
+					width: 100%;
+					height: 0;
+					padding: 0 0 100%;
+
+					svg {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+					}
+				}
+
+				.icon-radio {
+					z-index: 10;
+				}
+
+				.icon-radio-bg {
+					z-index: 0;
+				}
+			}
+		}
+
+		.l-history {
+			a {
+				.l-section-title {
+					color: $white;
+				}
+
+				.icon-history-speaker,
+				.icon-history-logo,
+				.icon-history-bg {
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: block;
+					width: 100%;
+					height: 0;
+					padding: 0 0 100%;
+
+					svg {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+					}
+				}
+
+				.icon-history-speaker {
+					z-index: 10;
+				}
+
+				.icon-history-logo {
+					z-index: 5;
+				}
+
+				.icon-history-bg {
+					z-index: 0;
+				}
+
+				&:active, &:focus, &:hover {
+					.l-section-title {
+						color: $navy;
+					}
+				}
+			}
+		}
+
+		.l-dandelion {
+			a {
+				background-color: $dark-sky;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				background-size: auto;
+
+				.l-tbl {
+					display: table;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+
+					.l-row {
+						display: table-row;
+
+						.l-cell {
+							display: table-cell;
+							text-align: center;
+							vertical-align: middle;
+							padding: ($vert-spacing-unit * 3) 15%;
+						}
+					}
+				}
+
+				.l-section-title {
+					color: $lemon;
+				}
+
+				.l-title {
+					display: block;
+					color: $white;
+					@include font-size(32px);
+					line-height: ($base-line-height / $em-base);
+					font-family: $serif;
+				}
+
+				.l-description {
+					display: block;
+					color: $white;
+					@include font-size(12px);
+					line-height: ($base-line-height / $em-base);
+					margin: ($vert-spacing-unit * 0.4) 0;
+				}
+
+				&:active, &:focus, &:hover {
+					.l-title,
+					.l-description {
+						color: $sky;
+					}
+				}
+			}
+		}
+
+		.l-about {
+			.l-constrained {
+				padding: ($vert-spacing-unit * 4) 5% 0;
 			}
 
-			.l-menu {
-				display: block;
-				position: relative;
-				z-index: 0;
-				list-style: none;
-				margin: 0;
-				padding: 0;
+			.l-headline {
+				display: none;
+				@include font-size(18px);
+				font-family: $serif;
+				color: $white;
+				font-style: italic;
+				text-align: center;
 
-				.l-leaf {
-					display: block;
+				p {
+					line-height: ($base-line-height / $em-base);
+				}
+
+				em {
+					font-style: normal;
+				}
+			}
+
+			.l-social {
+				.l-section-title {
+					color: $light-sky;
+					margin: 0 0 1em;
+					@include element-invisible;
+				}
+
+				.l-menu {
+					@include font-size(12px);
+					line-height: ($base-line-height / $em-base);
 					list-style: none;
 					margin: 0;
 					padding: 0;
+					text-align: center;
 
-					.l-node {
-						display: block;
+					.l-leaf {
+						display: inline-block;
+						list-style: none;
+						margin: 0 ($horz-spacing-unit * 0.75) 0 0;
+						padding: 0 ($horz-spacing-unit * 0.75) 0 0;
+						border-right: 1px solid $dark-sky;
 
-						.l-tbl {
-							display: table;
-							width: 100%;
-
-							.l-row {
-								display: table-row;
-
-								.l-cell {
-									display: table-cell;
-									text-align: center;
-									padding: ($vert-spacing-unit * 3) ($horz-spacing-unit * 2);
-								}
-							}
-						}
-
-						.l-title {
-							display: block;
-							color: $white;
-							@include font-size(32px);
-							line-height: ($base-line-height / $em-base);
-							font-family: $serif;
-						}
-
-						.l-description {
-							display: block;
-							color: $white;
-							@include font-size(12px);
-							line-height: ($base-line-height / $em-base);
-							margin: ($vert-spacing-unit * 0.4) 0;
-						}
-
-						.icon-play {
-							@include font-size(34px);
-							margin: ($vert-spacing-unit * 0.3) 0 0;
+						&:last-child {
+							margin: 0;
+							padding: 0;
+							border: 0;
 						}
 
 						a {
-							display: block;
-							cursor: pointer;
-							height: 100%;
 							text-decoration: none;
 
-							.l-title,
-							.l-description {
-								color: $white;
-							}
-
 							&:visited {
-								text-decoration: none;
-
-								.l-title,
-								.l-description {
-									color: $white;
-								}
+								text-decoration: underline;
 							}
 
 							&:active, &:focus, &:hover {
-								text-decoration: none;
+								text-decoration: underline;
 							}
 						}
 					}
-
-					&:first-child {
-						.l-node {
-							.l-tbl {
-								.l-row {
-									.l-cell {
-										padding: ($vert-spacing-unit * 5) ($horz-spacing-unit * 2) ($vert-spacing-unit * 3);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-
-			.l-node-dandelion {
-				a {
-					background-color: $dark-sky;
-					background-repeat: no-repeat;
-					background-position: 50% 50%;
-					background-size: auto;
 				}
 			}
 		}
-	}
-}
 
-/* Only use hover styles for large elements on non-touch devices */
-.no-touchevents {
-	.l-main {
-		.l-content {
-			.l-radio {
-				a {
-					&:active, &:focus, &:hover {
-						background: $sky;
-					}
-				}
-			}
+		.l-about-bg {
+			display: none;
+			z-index: 0;
 
-			.l-projects {
-				.l-menu {
-					.l-leaf {
-						.l-node {
-							&:active, &:focus, &:hover {
-								.l-title,
-								.l-description {
-									color: $sky;
-								}
-							}
-						}
-					}
+			.icon-about-bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: block;
+				width: 100%;
+				height: 0;
+				padding: 0 0 100%;
+
+				svg {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
 				}
 			}
 		}
@@ -286,14 +351,12 @@ a {
 .bgsizecover {
 	.l-main {
 		.l-content {
-			.l-projects {
-				.l-node-dandelion {
-					a {
-						-webkit-background-size: cover;
-						-moz-background-size: cover;
-						-o-background-size: cover;
-						background-size: cover;
-					}
+			.l-dandelion {
+				a {
+					-webkit-background-size: cover;
+					-moz-background-size: cover;
+					-o-background-size: cover;
+					background-size: cover;
 				}
 			}
 		}
@@ -305,82 +368,59 @@ a {
 	display: block;
 	position: relative;
 	z-index: 10;
+	color: $navy-grey;
 
-	> .l-constrained {
-		@include padding($vert-offset, $horz-offset);
-	}
-
-	.l-social {
-		display: block;
-
-		.l-section-title {
-			color: $light-sky;
-			margin: 0 0 1em;
-		}
-
-		.l-menu {
-			@include clearfix;
-			@include font-size(12px);
-			line-height: ($base-line-height / $em-base);
-			list-style: none;
-			margin: 0;
-			padding: 0;
-
-			.l-leaf {
-				float: left;
-				list-style: none;
-				margin: 0 ($horz-spacing-unit * 0.75) 0 0;
-				padding: 0 ($horz-spacing-unit * 0.75) 0 0;
-				border-right: 1px solid $dark-sky;
-
-				&:last-child {
-					margin: 0;
-					padding: 0;
-					border: 0;
-				}
-
-				a {
-					text-decoration: none;
-
-					&:visited {
-						text-decoration: underline;
-					}
-
-					&:active, &:focus, &:hover {
-						text-decoration: underline;
-					}
-				}
-			}
-		}
+	.l-constrained {
+		padding: ($vert-spacing-unit * 1) 5% ($vert-spacing-unit * 2);
 	}
 
 	.l-credit {
 		display: block;
 		width: 100%;
-		margin-top: $vert-offset;
-		color: $navy-grey;
+		text-align: center;
 
 		p {
-			@include font-size(11px);
-			line-height: ($base-line-height / $em-base);
-			margin-top: 0;
-
-			&:last-child {
-				margin: 0;
-			}
+			@include font-size(12px);
 		}
 
 		a {
-			text-decoration: underline;
-			color: $navy-grey;
+			@include link-colors($light-sky, $light-sky, $light-sky, $light-sky, $light-sky);
+			text-decoration: none;
 
 			&:visited {
 				text-decoration: none;
 			}
 
 			&:active, &:focus, &:hover {
-				text-decoration: none;
+				text-decoration: underline;
 			}
+		}
+	}
+
+	.l-footer-menu {
+		margin: ($vert-spacing-unit) 0 0;
+
+		.l-menu {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+
+			.l-leaf {
+				display: inline;
+				list-style: none;
+				margin: 0 ($horz-spacing-unit * 2) 0 0;
+				padding: 0;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+
+		a[class^="icon-"], a[class*=" icon-"] {
+			@include font-size(30px);
+			line-height: 1;
 		}
 	}
 }
@@ -391,47 +431,55 @@ a {
 
 @media screen and (min-width: $medium) {
 
-	$vert-offset: 50px;
-	$horz-offset: 40px;
+	.l-header {
+		.l-logo {
+			padding: ($vert-spacing-unit * 0.7);
+
+			.icon-logo {
+				@include font-size(60px);
+			}
+		}
+	}
 
 	.l-main {
 		.l-content {
-			.l-radio {
-				@include height(320px);
+			@include clearfix;
 
-				.l-section-title {
-					@include padding($vert-offset * 0.75, $horz-offset);
-				}
+			.l-radio {
+				@include grid-span(8, 1, $gutter: 0);
 			}
 
-			.l-projects {
-				.l-section-title {
-					@include padding($vert-offset, $horz-offset);
+			.l-dandelion {
+				@include grid-span(8, 9, $gutter: 0);
+			}
+
+			.l-history {
+				@include grid-span(8, 9, $gutter: 0);
+				clear: left;
+			}
+
+			.l-about {
+				@include grid-span(8, 1, $gutter: 0);
+
+				.l-constrained {
+					padding: 35% 10% 0;
 				}
 
-				.l-menu {
-					.l-leaf {
-						.l-node {
-							.l-tbl {
-								.l-row {
-									.l-cell {
-										padding: ($vert-spacing-unit * 5) ($horz-spacing-unit * 2);
-									}
-								}
-							}
-						}
+				.l-headline {
+					display: block;
+					@include font-size(20px);
+					text-align: left;
+				}
 
-						&:first-child {
-							.l-node {
-								.l-tbl {
-									.l-row {
-										.l-cell {
-											padding: ($vert-spacing-unit * 7) ($horz-spacing-unit * 2) ($vert-spacing-unit * 5);
-										}
-									}
-								}
-							}
-						}
+				.l-social {
+					margin: ($vert-spacing-unit * 4) 0 0;
+
+					.l-section-title {
+						@include element-visible;
+					}
+
+					.l-menu {
+						text-align: left;
 					}
 				}
 			}
@@ -439,175 +487,107 @@ a {
 	}
 
 	.l-footer {
-		> .l-constrained {
-			@include padding($vert-offset, $horz-offset);
+		.l-constrained {
+			padding: ($vert-spacing-unit * 3) 5% ($vert-spacing-unit * 2);
 		}
 	}
 
 }
 
 /*----------------------------------------------------------------------
-LANDSCAPE
+>= 1008
 ----------------------------------------------------------------------*/
 
-@media screen and (min-width: $medium) and (orientation: landscape) {
+@media screen and (min-width: $large) {
 
-	$vert-offset: 50px;
-	$horz-offset: 40px;
+	.l-bg,
+	.l-header {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding-bottom: 50%;
 
-	body {
-		overflow: hidden;
+		.l-logo {
+			display: block;
+			position: absolute;
+			top: 31%;
+			left: 15%;
+		}
 	}
 
 	.l-bg {
-		display: block;
-		position: absolute;
-		overflow: hidden;
-		line-height: 1;
-		@include font-size(640px);
-		margin: -0.5em 0 0 -0.5em;
-		width: 1em;
-		height: 1em;
-		top: 50%;
-		left: 50%;
+		.l-logo {
+			line-height: 1;
+			@include font-size(720px);
+			margin: -0.5em 0 0 -0.5em;
+			width: 1em;
+			height: 1em;
 
-		svg {
-			width: 100%;
-			height: 100%;
+			svg {
+				width: 100%;
+				height: 100%;
 
-			#bg-circle-0,
-			#bg-circle-1,
-			#bg-circle-2,
-			#bg-circle-3,
-			#bg-circle-4 {
-				opacity: 0;
+				#bg-circle-0,
+				#bg-circle-1,
+				#bg-circle-2,
+				#bg-circle-3,
+				#bg-circle-4,
+				#bg-circle-5 {
+					opacity: 0;
+				}
 			}
 		}
 	}
 
 	.l-header {
-		position: absolute;
-		top: 50%;
-		left: 50%;
 		overflow: visible;
 
 		.l-logo {
-			display: block;
 			background: none;
 			padding: 0;
 
 			.icon-logo {
-				@include font-size(100px);
+				@include font-size(90px);
 				margin: -0.5em 0 0 -0.5em;
 			}
 		}
 	}
 
 	.l-main {
-		float: left;
-		width: 50%;
-		height: 100%;
-
 		.l-content {
-			height: 100%;
-
-			.l-radio,
-			.l-projects {
-				height: 50% !important;
+			.l-radio {
+				@include grid-span(5, 7, $gutter: 0);
 			}
 
-			.l-projects {
-				.l-menu {
-					height: 100%;
+			.l-dandelion {
+				@include grid-span(5, 12, $gutter: 0);
+			}
 
-					.l-leaf {
-						height: 100%;
+			.l-history {
+				@include grid-span(5, 11, $gutter: 0);
+				clear: left;
+			}
 
-						.l-node {
-							height: 100%;
+			.l-about {
+				@include grid-span(10, 1, $gutter: 0);
 
-							.l-tbl {
-								height: 100%;
-
-								.l-row {
-									.l-cell {
-										vertical-align: middle;
-										padding: ($vert-spacing-unit * 2) ($horz-spacing-unit * 2) !important;
-									}
-								}
-							}
-						}
-
-						&:first-child {
-							.l-node {
-								.l-tbl {
-									.l-row {
-										.l-cell {
-											padding: ($vert-spacing-unit * 4) ($horz-spacing-unit * 2) ($vert-spacing-unit * 2) !important;
-										}
-									}
-								}
-							}
-						}
-					}
+				.l-constrained {
+					padding: 15% 50% 10% 10%;
 				}
+			}
+
+			.l-about-bg {
+				display: block;
+				@include grid-span(5, 6, $gutter: 0);
 			}
 		}
 	}
 
 	.l-footer {
-		float: left;
-		width: 50%;
-		height: 100%;
-
-		> .l-constrained {
-			height: 100%;
-			padding: 0;
-		}
-
-		.l-social {
-			height: 100%;
-
-			.l-tbl {
-				display: table;
-				width: 100%;
-				height: 100%;
-
-				.l-row {
-					display: table-row;
-
-					.l-cell {
-						display: table-cell;
-						vertical-align: middle;
-						text-align: right;
-						@include padding($vert-offset, $horz-offset);
-					}
-				}
-			}
-
-			.l-menu {
-				.l-leaf {
-					float: none;
-					margin: ($vert-spacing-unit * 0.15) 0;
-					padding: 0;
-					border: none;
-
-					&:last-child {
-						margin: ($vert-spacing-unit * 0.15) 0;
-					}
-				}
-			}
-		}
-
-		.l-credit {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			text-align: right;
-
-			.l-constrained {
-				@include padding($vert-offset, $horz-offset);
-			}
+		.l-constrained {
+			padding: ($vert-spacing-unit * 4) 5% ($vert-spacing-unit * 3);
 		}
 	}
 
@@ -619,82 +599,50 @@ LANDSCAPE
 
 @media screen and (min-width: $xlarge) {
 
-	$vert-offset: 60px;
-	$horz-offset: 50px;
-
 	.l-section-title {
 		@include font-size(12px);
 	}
 
+	.l-bg {
+		.l-logo {
+			@include font-size(800px);
+		}
+	}
+
+	.l-header {
+		.l-logo {
+			.icon-logo {
+				@include font-size(100px);
+			}
+		}
+	}
+
 	.l-main {
 		.l-content {
-			.l-radio {
-				.l-section-title {
-					@include padding($vert-offset * 0.75, $horz-offset);
+			.l-dandelion {
+				a {
+					.l-title {
+						@include font-size(36px);
+					}
 
-					.icon-circle {
-						@include font-size(11px);
+					.l-description {
+						@include font-size(14px);
 					}
 				}
 			}
 
-			.l-projects {
-				.l-section-title {
-					@include padding($vert-offset, $horz-offset);
+			.l-about {
+				.l-constrained {
+					padding: 15% 46% 10% 14%;
 				}
 
-				.l-menu {
-					.l-leaf {
-						.l-node {
-							.l-title {
-								@include font-size(36px);
-							}
-
-							.l-description {
-								@include font-size(14px);
-							}
-
-							.icon-play {
-								@include font-size(38px);
-							}
-						}
-					}
+				.l-headline {
+					@include font-size(22px);
 				}
-			}
-		}
-	}
 
-	.l-footer {
-		> .l-constrained {
-			@include padding($vert-offset, $horz-offset);
-		}
-	}
-
-}
-
-@media screen and (min-width: $xlarge) and (orientation: landscape) {
-
-	$vert-offset: 60px;
-	$horz-offset: 50px;
-
-	.l-footer {
-		> .l-constrained {
-			padding: 0;
-		}
-
-		.l-social {
-			.l-tbl {
-				.l-row {
-					.l-cell {
-						@include padding($vert-offset, $horz-offset);
-					}
+				.l-social {
+					margin: ($vert-spacing-unit * 6) 0 0;
 				}
-			}
-		}
-
-		.l-credit {
-			.l-constrained {
-				@include padding($vert-offset, $horz-offset);
 			}
 		}
 	}
