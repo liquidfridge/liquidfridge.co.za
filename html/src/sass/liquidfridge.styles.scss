@@ -526,7 +526,7 @@ a {
 	.l-bg {
 		.l-logo {
 			line-height: 1;
-			@include font-size(720px);
+			@include font-size(900px);
 			margin: -0.5em 0 0 -0.5em;
 			width: 1em;
 			height: 1em;
@@ -540,7 +540,8 @@ a {
 				#bg-circle-2,
 				#bg-circle-3,
 				#bg-circle-4,
-				#bg-circle-5 {
+				#bg-circle-5,
+				#bg-circle-6 {
 					opacity: 0;
 				}
 			}
@@ -607,7 +608,7 @@ a {
 
 	.l-bg {
 		.l-logo {
-			@include font-size(800px);
+			@include font-size(1000px);
 		}
 	}
 

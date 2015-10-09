@@ -53,7 +53,7 @@
 		this.$bg = jQuery('#bg');
 
 		//
-		var total = 6;
+		var total = 7;
 
 		this.$circles = new Array(total);
 
@@ -182,24 +182,36 @@
 																return;
 															}
 
-															var i = 0;
-															var j = 0;
-
-															for (j = 0; j < total; j++) {
-																self.$circles[j].velocity({
-																	opacity: 0
-																}, {
-																	delay: config.delay * 2,
-																	duration: config.duration / 2,
-																	complete: function () {
-																		i++;
-
-																		if (i === total) {
-																			anim();
-																		}
+															self.$circles[6].velocity({
+																opacity: 1
+															}, {
+																delay: config.delay * Math.pow(config.multiplier, 6),
+																duration: config.duration,
+																complete: function (elm) {
+																	if (!self.flags.playing) {
+																		return;
 																	}
-																});
-															}
+
+																	var i = 0;
+																	var j = 0;
+
+																	for (j = 0; j < total; j++) {
+																		self.$circles[j].velocity({
+																			opacity: 0
+																		}, {
+																			delay: config.delay * 2,
+																			duration: config.duration / 2,
+																			complete: function () {
+																				i++;
+
+																				if (i === total) {
+																					anim();
+																				}
+																			}
+																		});
+																	}
+																}
+															});
 														}
 													});
 												}
