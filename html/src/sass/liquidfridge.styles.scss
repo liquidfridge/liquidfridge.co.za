@@ -203,16 +203,12 @@ a {
 
 		.l-dandelion {
 			a {
-				background-color: $dark-sky;
-				background-repeat: no-repeat;
-				background-position: 50% 50%;
-				background-size: auto;
-
 				.l-tbl {
 					display: table;
 					width: 100%;
 					height: 100%;
 					position: absolute;
+					z-index: 10;
 					top: 0;
 					left: 0;
 
@@ -225,6 +221,17 @@ a {
 							vertical-align: middle;
 							padding: ($vert-spacing-unit * 3) 15%;
 						}
+					}
+				}
+
+				.l-img {
+					display: block;
+					position: relative;
+					z-index: 0;
+
+					img {
+						width: 100%;
+						height: auto;
 					}
 				}
 
@@ -342,21 +349,6 @@ a {
 					height: 100%;
 					top: 0;
 					left: 0;
-				}
-			}
-		}
-	}
-}
-
-.bgsizecover {
-	.l-main {
-		.l-content {
-			.l-dandelion {
-				a {
-					-webkit-background-size: cover;
-					-moz-background-size: cover;
-					-o-background-size: cover;
-					background-size: cover;
 				}
 			}
 		}
